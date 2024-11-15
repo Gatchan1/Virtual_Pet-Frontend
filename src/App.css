@@ -1,0 +1,23 @@
+#authAccordion {
+  width: 450px;
+  margin: auto;
+}
+
+.center {
+  text-align: center;
+}
+
+.full-height {
+  height: 100vh;
+}
+
+.y-center {
+  display: flex;
+  align-content: center;
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  background-color: rgb(255, 240, 191);
+}
