@@ -12,6 +12,7 @@ export default function SignUp({ setIsAuthenticated }) {
     e.preventDefault();
     setError("");
     try {
+      if (password != repeatPassword) throw new Error("Las contraseñas no coinciden.");
       await signup(username, email, password);
       setIsAuthenticated(true);
     } catch (err) {

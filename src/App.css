@@ -16,8 +16,55 @@
   align-content: center;
 }
 
-.navbar {
+.navbar, .close-modal {
   display: flex;
   justify-content: flex-end;
+}
+
+.navbar {
   background-color: rgb(255, 240, 191);
+}
+
+.flex {
+  display: flex;
+}
+
+.pet-card {
+  background-color: rgb(177, 254, 254);
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 600px;
+  text-align: center;
+}
+
+.modal-main {
+  justify-content: center;
+}
+.left, .right {
+  width: 40%;
 }
