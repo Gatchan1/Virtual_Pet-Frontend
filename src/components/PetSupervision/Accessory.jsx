@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { updatePet } from "../../api/petService";
 
-export default function Accessory({ accessory, pet, fetchUserPets }) {
+export default function Accessory({ accessory, pet, fetchPets }) {
   const [isWearing, setIsWearing] = useState(false);
 
   useEffect(() => {
@@ -13,18 +13,18 @@ export default function Accessory({ accessory, pet, fetchUserPets }) {
     accessories = isWearing ? accessories.filter((acc) => acc !== accessory) : [...accessories, accessory];
     try {
       await updatePet(pet, { accessories });
-      fetchUserPets();
+      fetchPets();
       setIsWearing((bool) => !bool);
     } catch (error) {
-      console.error("Error interacting with pet:", error);
+      console.error("Error updating pet accessories:", error);
     }
   };
 
   return (
     <div>
-      <button onClick={() => changeAccessories()}>
+      <button  className="margin btn btn-primary" onClick={() => changeAccessories()}>
         {isWearing ? "Remove " : "Put on "}
-        {accessory.toLowerCase()}
+        <span className="bold">{accessory.toLowerCase()}</span>
       </button>
     </div>
   );

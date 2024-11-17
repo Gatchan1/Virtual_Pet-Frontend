@@ -41,7 +41,7 @@ export default function SignUp({ setIsAuthenticated }) {
         </div>
         {error && <p style={{ color: "red" }}>{error}</p>}
         <div className="center">
-          <button type="submit">Registro + iniciar sesión</button>
+          <button type="submit" className="btn btn-primary">Registro + iniciar sesión</button>
         </div>
       </form>
     </div>

@@ -1,6 +1,22 @@
+:root {
+  --navbar-height: 50px;
+}
+
+span.bold {
+  font-weight: bold;
+}
+
 #authAccordion {
   width: 450px;
   margin: auto;
+}
+
+.accordion-button {
+  font-size: 18px;
+  font-weight: bold;
+}
+.accordion-button.collapsed {
+  font-weight: normal;
 }
 
 .center {
@@ -16,22 +32,119 @@
   align-content: center;
 }
 
-.navbar, .close-modal {
+.button-to-left {
   display: flex;
   justify-content: flex-end;
 }
 
 .navbar {
-  background-color: rgb(255, 240, 191);
+  background-color: rgb(255, 255, 255);
+  height: var(--navbar-height);
+}
+
+.navbar, .pet-creation {
+  border-bottom: 1px solid grey;
 }
 
 .flex {
   display: flex;
 }
 
+.relative {
+  position: relative;
+}
+
+form > div {
+  display: flex;
+  justify-content: center;
+  padding: 2px 0;
+}
+
+form label {
+  padding-right: 10px;
+}
+
+.dashboard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("viivus-bg.png");
+  background-size: 250px;
+  min-height: calc(100vh - var(--navbar-height));
+  opacity: 0.4;
+  z-index: -2;
+}
+
+.authentication-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("viivus-bg2.png");
+  background-size: 250px;
+  min-height: 100vh;
+  opacity: 0.4;
+  z-index: -1;
+}
+
+.admin-dashboard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("viivus-bg2.png");
+  background-size: 250px;
+  min-height: calc(100vh - var(--navbar-height));
+  opacity: 0.4;
+  z-index: -1;
+}
+
+.btn-light {
+  border: 1px solid grey;
+}
+
+.btn-primary {
+  border: 1px solid rgb(3, 0, 91);
+}
+.btn-primary.margin {
+  margin: 2px;
+}
+.padding-top {
+  padding-top: 5px;
+}
+
+.pet-creation {
+  position: relative;
+  padding: 30px 0 15px 0;
+  background-color: rgb(239, 249, 240);
+}
+.pet-creation::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(239, 249, 240);
+  z-index: -1;
+}
+
+.pet-card-container {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .pet-card {
-  background-color: rgb(177, 254, 254);
-  width: 200px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(133, 133, 133);
+  min-width: 200px;
   height: 200px;
   margin: 10px;
   border-radius: 20px;
@@ -40,6 +153,14 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+}
+.pet-card.admin {
+  background-color: #fffdef;
+  border-color: #c38800;
+}
+
+.pet-card h3 {
+  padding: 0 14px;
 }
 
 .modal-overlay {
@@ -58,13 +179,82 @@
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;
-  width: 600px;
+  width: 740px;
   text-align: center;
 }
+
+.modal-content h2 {
+  background-color: rgb(235, 235, 235);
+  border-radius: 10px;
+  width: 80%;
+  margin: 5px auto;
+  padding: 5px 0 7px 0;
+}
+
+.modal-content header {
+  padding-bottom: 16px;
+} 
 
 .modal-main {
   justify-content: center;
 }
-.left, .right {
+.left,
+.right {
   width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.middle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.progress-bar {
+  width: 150px;
+}
+
+.progress-bar .back {
+  height: 20px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid grey;
+  overflow: hidden;
+}
+
+.progress-bar .front {
+  height: 100%;
+  transition: width 0.3s ease-in-out;
+  border-right: 1px solid rgb(180, 180, 180);
+}
+
+.pet-image {
+  position: relative;
+  width: 350px;
+  height: 270px;
+}
+
+.pet-image img {
+  width: 350px;
+}
+img.accessory, img.pet  {
+  position: absolute;
+  left: 0;
+}
+img.location {
+  z-index: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+img.pet {
+  z-index: 1;
+}
+
+img.accessory {
+  z-index: 2;
 }

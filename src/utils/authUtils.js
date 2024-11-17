@@ -1,15 +1,26 @@
 import { jwtDecode } from "jwt-decode";
 
-// Function to get the user ID from the token
-export const getUserIdFromToken = () => {
+const decodeTokenField = (field) => {
   const token = localStorage.getItem("token");
   if (!token) return null;
 
   try {
     const decodedToken = jwtDecode(token);
-    return decodedToken.id;
+    return decodedToken[field] || null; // Return the field or null if not found
   } catch (error) {
     console.error("Error decoding token:", error);
     return null;
   }
+};
+
+export const getUserIdFromToken = () => {
+  return decodeTokenField("id");
+};
+
+export const getUserNameFromToken = () => {
+  return decodeTokenField("sub");
+};
+
+export const getUserRoleFromToken = () => {
+  return decodeTokenField("role");
 };

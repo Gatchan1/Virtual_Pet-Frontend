@@ -30,7 +30,7 @@ export default function Login({ setIsAuthenticated }) {
         </div>
         {error && <p style={{ color: "red" }}>{error}</p>}
         <div className="center">
-          <button type="submit">Iniciar sesión</button>
+          <button type="submit" className="btn btn-primary">Iniciar sesión</button>
         </div>
       </form>
     </div>

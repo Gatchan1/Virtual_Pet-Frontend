@@ -1,11 +1,9 @@
-import { useState } from "react";
-import { login } from "../api/authService";
 import Login from "../components/Login";
 import SignUp from "../components/SignUp";
 
 export default function AuthenticationPage({ setIsAuthenticated }) {
   return (
-    <div className="full-height y-center">
+    <div className="relative authentication-page full-height y-center">
       <div className="accordion" id="authAccordion">
         <div className="accordion-item">
           <h2 className="accordion-header">
