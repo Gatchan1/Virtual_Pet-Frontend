@@ -3,12 +3,28 @@ import useAuth from "./hooks/useAuth";
 import DashBoard from "./pages/DashBoard";
 import AuthenticationPage from "./pages/AuthenticationPage";
 import Layout from "./layouts/Layout";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AdminDashboard from "./pages/AdminDashboard";
 
 function App() {
-  const { isAuthenticated, setIsAuthenticated } = useAuth();
+  const { isAuthenticated, setIsAuthenticated, isLoading } = useAuth();
   const [showAdminDashboard, setShowAdminDashboard] = useState(false);
+  const [loadingSpinner, setLoadingSpinner] = useState(true);
+
+  useEffect(() => {
+    if (!isLoading)
+      setTimeout(() => {
+        setLoadingSpinner(false);
+      }, 1000);
+  }, [isLoading]);
+
+  if (loadingSpinner) {
+    return (
+      <div className="spinnerContainer">
+        <span className="spinner" role="status"></span>
+      </div>
+    );
+  }
 
   return (
     <>

@@ -3,6 +3,7 @@ import {jwtDecode} from 'jwt-decode';
 
 function useAuth() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -14,16 +15,22 @@ function useAuth() {
           setIsAuthenticated(true);
         } 
         else {
-          localStorage.removeItem('token'); // Eliminar token expirado
+          localStorage.removeItem('token'); // Eliminate expired token
+          setIsAuthenticated(false);
         }
       } catch (error) {
         console.error('Token no válido:', error);
         localStorage.removeItem('token');
+        setIsAuthenticated(false);
       }
+    } else {
+      setIsAuthenticated(false);
     }
+
+    setIsLoading(false);
   }, []);
 
-  return {isAuthenticated, setIsAuthenticated};
+  return {isAuthenticated, setIsAuthenticated, isLoading};
 }
 
 export default useAuth;

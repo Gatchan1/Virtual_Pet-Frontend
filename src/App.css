@@ -64,6 +64,34 @@ form label {
   padding-right: 10px;
 }
 
+.spinnerContainer {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #9e9e9e;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .dashboard::before {
   content: "";
   position: absolute;
@@ -181,6 +209,8 @@ form label {
   border-radius: 8px;
   width: 740px;
   text-align: center;
+  max-height: 95vh;
+  overflow-y: auto;
 }
 
 .modal-content h2 {
