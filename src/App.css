@@ -2,8 +2,8 @@
   --navbar-height: 50px;
 }
 
-span.bold {
-  font-weight: bold;
+h5 {
+  font-size: 18px;
 }
 
 #authAccordion {
@@ -32,6 +32,10 @@ span.bold {
   align-content: center;
 }
 
+.big-font {
+  font-size: 22px;
+}
+
 .button-to-left {
   display: flex;
   justify-content: flex-end;
@@ -42,7 +46,8 @@ span.bold {
   height: var(--navbar-height);
 }
 
-.navbar, .pet-creation {
+.navbar,
+.pet-creation {
   border-bottom: 1px solid grey;
 }
 
@@ -214,7 +219,7 @@ form label {
 }
 
 .modal-content h2 {
-  background-color: rgb(235, 235, 235);
+  background-color: rgb(222, 246, 255);
   border-radius: 10px;
   width: 80%;
   margin: 5px auto;
@@ -223,7 +228,7 @@ form label {
 
 .modal-content header {
   padding-bottom: 16px;
-} 
+}
 
 .modal-main {
   justify-content: center;
@@ -262,16 +267,17 @@ form label {
   border-right: 1px solid rgb(180, 180, 180);
 }
 
-.pet-image {
+.pet-image-container {
   position: relative;
   width: 350px;
   height: 270px;
 }
 
-.pet-image img {
+.pet-image-container img {
   width: 350px;
 }
-img.accessory, img.pet  {
+img.accessory,
+img.pet {
   position: absolute;
   left: 0;
 }
@@ -287,4 +293,17 @@ img.pet {
 
 img.accessory {
   z-index: 2;
+}
+
+.pet-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  background-color: #7c7c7c;
+  border-radius: 5%;
+
+  p {
+    color: white;
+  }
 }

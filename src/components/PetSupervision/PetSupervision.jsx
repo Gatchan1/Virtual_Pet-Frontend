@@ -11,7 +11,6 @@ export default function PetSupervision({ pet, fetchPets, closeModal }) {
   const [petState, setPetState] = useState("happy");
 
   useEffect(() => {
-    console.log("peeeet", pet);
     establishState();
   }, [pet]);
 
@@ -40,6 +39,14 @@ export default function PetSupervision({ pet, fetchPets, closeModal }) {
     }
   };
 
+  const calculateTimePassed = (dateString) => {
+    const createdDate = new Date(dateString);
+    const currentDate = new Date();
+    const differenceInMilliseconds = currentDate - createdDate;
+    const differenceInDays = differenceInMilliseconds / (1000 * 60 * 60 * 24);
+    return Math.round(differenceInDays * 10) / 10;
+  };
+
   return (
     <div
       className="modal-overlay"
@@ -55,7 +62,9 @@ export default function PetSupervision({ pet, fetchPets, closeModal }) {
         </div>
         <header>
           <h2>{pet.name}</h2>
-          <p>Belongs to: <span className="bold">{pet.userName}</span></p>
+          <p>
+            Belong{pet.active ? "s" : "ed"} to: <b>{pet.userName}</b>
+          </p>
         </header>
         <div className="modal-main flex">
           <div className="left">
@@ -68,19 +77,30 @@ export default function PetSupervision({ pet, fetchPets, closeModal }) {
           </div>
 
           <div className="middle">
-            <div className="pet-image">
-              <img className="location" src={`${pet.location.toLowerCase()}.webp`} />
-              <img className="pet" src={`${pet.type.toLowerCase()}-${pet.color.toLowerCase()}-${petState}.png`} />
-              {pet.accessories.includes("HAT") && <img className="accessory" src="hat.png" />}
-              {pet.accessories.includes("SUNGLASSES") && <img className="accessory" src="sunglasses.png" />}
+            <div className="pet-image-container">
+              {!pet.active && (
+                <h5 className="pet-left">
+                  <p className="big-font">😔</p>
+                  <p><b>{pet.name}</b> felt mistreated and left you.</p>
+                  <p>They were with you for {calculateTimePassed(pet.createdAt)} days.</p>
+                </h5>
+              )}
+              {pet.active && (
+                <>
+                  <img className="location" src={`${pet.location.toLowerCase()}.webp`} />
+                  <img className="pet" src={`${pet.type.toLowerCase()}-${pet.color.toLowerCase()}-${petState}.png`} />
+                  {pet.accessories.includes("HAT") && <img className="accessory" src="hat.png" />}
+                  {pet.accessories.includes("SUNGLASSES") && <img className="accessory" src="sunglasses.png" />}
+                </>
+              )}
             </div>
             <div className="padding-top">
               <ProgressBar label={"Happiness"} value={pet.happiness} color={"#e1ff85"} />
               <ProgressBar label={"Energy"} value={pet.energy} color={"#b1fac5"} />
             </div>
             <div className="padding-top">
-              <button className="margin btn btn-primary" onClick={() => interact("PLAY")}>Play</button>
-              <button className="margin btn btn-primary" onClick={() => interact("EAT")}>Eat</button>
+              <button className="margin btn btn-primary" onClick={() => interact("PLAY")} disabled={!pet.active}>Play</button>
+              <button className="margin btn btn-primary" onClick={() => interact("EAT")} disabled={!pet.active}>Eat</button>
             </div>
           </div>
 
