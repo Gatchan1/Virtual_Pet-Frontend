@@ -2,9 +2,8 @@ import axios from "axios";
 import { API_URL } from "./apiConstants";
 import { getUserIdFromToken } from "../utils/authUtils";
 
-const token = localStorage.getItem("token");
-
 export const getUserPets = async () => {
+  const token = localStorage.getItem("token");
   const response = await axios.get(`${API_URL}/pet/getUserPets`, {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -18,6 +17,7 @@ export const getUserPets = async () => {
 };
 
 export const getAllPets = async () => {
+  const token = localStorage.getItem("token");
   const response = await axios.get(`${API_URL}/pet/admin/getAll`, {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -28,6 +28,7 @@ export const getAllPets = async () => {
 };
 
 export const updatePet = async (pet, { petInteraction = null, accessories = pet.accessories, location = pet.location }) => {
+  const token = localStorage.getItem("token");
   const data = {
     userId: pet.userId,
     name: pet.name,
@@ -46,6 +47,7 @@ export const updatePet = async (pet, { petInteraction = null, accessories = pet.
 };
 
 export const deletePet = async (pet) => {
+  const token = localStorage.getItem("token");
   const response = await axios.delete(`${API_URL}/pet/delete`, {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -60,6 +62,7 @@ export const deletePet = async (pet) => {
 };
 
 export const createPet = async (name, type, color) => {
+  const token = localStorage.getItem("token");
   const data = {
     userId: getUserIdFromToken(),
     name,
