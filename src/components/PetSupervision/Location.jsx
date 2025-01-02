@@ -19,9 +19,10 @@ export default function Location({location, pet, fetchPets}) {
 
   return (
     <div>
-      <button className={`margin btn ${isHere ? "btn-success" : "btn-primary"}`} onClick={() => changeLocation()} disabled={isHere}>
+      <button className={`margin btn ${isHere ? "btn-success" : "btn-primary"}`} onClick={() => changeLocation()
+      } disabled={isHere || !pet.active}>
         {isHere ? "" : "Go to "}
-        <span className="bold">{location[1]}</span>
+        <b>{location[1]}</b>
       </button>
     </div>
   );

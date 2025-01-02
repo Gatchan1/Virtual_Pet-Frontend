@@ -22,9 +22,9 @@ export default function Accessory({ accessory, pet, fetchPets }) {
 
   return (
     <div>
-      <button  className="margin btn btn-primary" onClick={() => changeAccessories()}>
+      <button className="margin btn btn-primary" onClick={() => changeAccessories()} disabled={!pet.active}>
         {isWearing ? "Remove " : "Put on "}
-        <span className="bold">{accessory.toLowerCase()}</span>
+        <b>{accessory.toLowerCase()}</b>
       </button>
     </div>
   );
