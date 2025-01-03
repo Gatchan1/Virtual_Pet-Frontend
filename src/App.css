@@ -14,9 +14,9 @@ h5 {
 .accordion-button {
   font-size: 18px;
   font-weight: bold;
-}
-.accordion-button.collapsed {
-  font-weight: normal;
+  &.collapsed {
+    font-weight: normal;
+  }
 }
 
 .center {
@@ -59,14 +59,15 @@ h5 {
   position: relative;
 }
 
-form > div {
-  display: flex;
-  justify-content: center;
-  padding: 2px 0;
-}
-
-form label {
-  padding-right: 10px;
+form {
+  & > div {
+    display: flex;
+    justify-content: center;
+    padding: 2px 0;
+  }
+  & label {
+    padding-right: 10px;
+  }
 }
 
 .spinnerContainer {
@@ -145,10 +146,11 @@ form label {
 
 .btn-primary {
   border: 1px solid rgb(3, 0, 91);
+  &.margin {
+    margin: 2px;
+  }
 }
-.btn-primary.margin {
-  margin: 2px;
-}
+
 .padding-top {
   padding-top: 5px;
 }
@@ -157,16 +159,16 @@ form label {
   position: relative;
   padding: 30px 0 15px 0;
   background-color: #eaf1ed;
-}
-.pet-creation::before {
-  content: "";
-  position: absolute;
-  top: -50px;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #eaf1ed;
-  z-index: -1;
+  &::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #eaf1ed;
+    z-index: -1;
+  }
 }
 
 .pet-card-container {
@@ -186,14 +188,13 @@ form label {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-}
-.pet-card.admin {
-  background-color: #fffdef;
-  border-color: #c38800;
-}
-
-.pet-card h3 {
-  padding: 0 14px;
+  & h3 {
+    padding: 0 14px;
+  }
+  &.admin {
+    background-color: #fffdef;
+    border-color: #c38800;
+  }
 }
 
 .modal-overlay {
@@ -216,83 +217,79 @@ form label {
   text-align: center;
   max-height: 95vh;
   overflow-y: auto;
-}
-
-.modal-content h2 {
-  background-color: rgb(222, 246, 255);
-  border-radius: 10px;
-  width: 80%;
-  margin: 5px auto;
-  padding: 5px 0 7px 0;
-}
-
-.modal-content header {
-  padding-bottom: 16px;
+  & h2 {
+    background-color: rgb(222, 246, 255);
+    border-radius: 10px;
+    width: 80%;
+    margin: 5px auto;
+    padding: 5px 0 7px 0;
+  }
+  & header {
+    padding-bottom: 16px;
+  }
 }
 
 .modal-main {
   justify-content: center;
-}
-.left,
-.right {
-  width: 40%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.middle {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0 10px;
+  & .left,
+  & .right {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  & .middle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 10px;
+  }
 }
 
 .progress-bar {
   width: 150px;
-}
-
-.progress-bar .back {
-  height: 20px;
-  width: 100%;
-  background-color: #fff;
-  border-radius: 8px;
-  border: 1px solid grey;
-  overflow: hidden;
-}
-
-.progress-bar .front {
-  height: 100%;
-  transition: width 0.3s ease-in-out;
-  border-right: 1px solid rgb(180, 180, 180);
+  & .back {
+    height: 20px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid grey;
+    overflow: hidden;
+  }
+  & .front {
+    height: 100%;
+    transition: width 0.3s ease-in-out;
+    border-right: 1px solid rgb(180, 180, 180);
+  }
 }
 
 .pet-image-container {
   position: relative;
   width: 350px;
   height: 270px;
+  & img {
+    width: 350px;
+  }
 }
 
-.pet-image-container img {
-  width: 350px;
-}
-img.accessory,
-img.pet {
-  position: absolute;
-  left: 0;
-}
-img.location {
-  z-index: 0;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-img.pet {
-  z-index: 1;
-}
-
-img.accessory {
-  z-index: 2;
+img {
+  &.accessory,
+  &.pet {
+    position: absolute;
+    left: 0;
+  }
+  &.location {
+    z-index: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  &.pet {
+    z-index: 1;
+  }
+  &.accessory {
+    z-index: 2;
+  }
 }
 
 .pet-left {
@@ -302,8 +299,7 @@ img.accessory {
   height: 100%;
   background-color: #7c7c7c;
   border-radius: 5%;
-
-  p {
+  & p {
     color: white;
   }
 }
