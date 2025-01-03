@@ -6,7 +6,7 @@ const decodeTokenField = (field) => {
 
   try {
     const decodedToken = jwtDecode(token);
-    return decodedToken[field] || null; // Return the field or null if not found
+    return decodedToken[field] || null;
   } catch (error) {
     console.error("Error decoding token:", error);
     return null;

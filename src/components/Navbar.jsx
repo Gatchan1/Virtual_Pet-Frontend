@@ -7,7 +7,7 @@ export default function Navbar({ setIsAuthenticated, showAdminDashboard, setShow
 
   const AdminPanelButton = () => {
     return (
-    <button onClick={() => setShowAdminDashboard((bool) => !bool)} className="btn btn-outline-primary">
+    <button onClick={() => setShowAdminDashboard((bool) => !bool)} className="btn btn-warning">
     {showAdminDashboard ? "User Dashboard" : "Admin Panel"}
     </button>
   )};
