@@ -87,10 +87,10 @@ export default function PetSupervision({ pet, fetchPets, closeModal }) {
               )}
               {pet.active && (
                 <>
-                  <img className="location" src={`${pet.location.toLowerCase()}.webp`} />
-                  <img className="pet" src={`${pet.type.toLowerCase()}-${pet.color.toLowerCase()}-${petState}.png`} />
-                  {pet.accessories.includes("HAT") && <img className="accessory" src="hat.png" />}
-                  {pet.accessories.includes("SUNGLASSES") && <img className="accessory" src="sunglasses.png" />}
+                  <img className="location" src={`/${pet.location.toLowerCase()}.webp`} />
+                  <img className="pet" src={`/${pet.type.toLowerCase()}-${pet.color.toLowerCase()}-${petState}.png`} />
+                  {pet.accessories.includes("HAT") && <img className="accessory" src="/hat.png" />}
+                  {pet.accessories.includes("SUNGLASSES") && <img className="accessory" src="/sunglasses.png" />}
                 </>
               )}
             </div>
