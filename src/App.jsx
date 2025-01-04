@@ -9,7 +9,7 @@ import { API_URL } from "./api/apiConstants";
 
 async function getTestRoute() {
   try {
-    const data = await fetch(API_URL);
+    const data = await fetch(`${API_URL}/test`);
     console.log("dataa!", data);
   } catch (err) {
     console.log(err);
