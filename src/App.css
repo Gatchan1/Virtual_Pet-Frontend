@@ -1,5 +1,6 @@
 :root {
   --navbar-height: 50px;
+  --footer-height: 32px;
 }
 
 h5 {
@@ -23,15 +24,6 @@ h5 {
   text-align: center;
 }
 
-.full-height {
-  height: 100vh;
-}
-
-.y-center {
-  display: flex;
-  align-content: center;
-}
-
 .big-font {
   font-size: 22px;
 }
@@ -44,6 +36,11 @@ h5 {
 .navbar {
   background-color: #d0e4e3;
   height: var(--navbar-height);
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  justify-content: center;
+  padding: 0 20px;
 }
 
 .navbar,
@@ -98,6 +95,81 @@ form {
   }
 }
 
+.authentication-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: calc(100vh - var(--footer-height));
+  min-height: 700px;
+  min-width: 900px;
+  overflow-y: auto;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("/viivus-bg2.png");
+    background-size: 250px;
+    min-height:  calc(100vh - var(--footer-height));
+    opacity: 0.4;
+    z-index: -1;
+  }
+}
+
+.mosaic {
+  background: url("/duckblock_100.png");
+  width: 900px;
+  height: 400px;
+  position: relative;
+  margin-top: 3vh;
+}
+
+.info {
+  width: 800px;
+  height: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  z-index: 1;
+  background: white; /* Make the inner div stand out */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("/viivus-bg2.png");
+    background-size: 250px;
+    min-height: 100%;
+    opacity: 0.18;
+    z-index: -1;
+  }
+
+  & p {
+    margin-bottom: 10px;
+  }
+}
+
+span.small-font {
+  font-size: 12px;
+}
+
 .dashboard::before {
   content: "";
   position: absolute;
@@ -107,23 +179,9 @@ form {
   bottom: 0;
   background: url("/viivus-bg.png");
   background-size: 250px;
-  min-height: calc(100vh - var(--navbar-height));
+  min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
   opacity: 0.4;
   z-index: -2;
-}
-
-.authentication-page::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url("/viivus-bg2.png");
-  background-size: 250px;
-  min-height: 100vh;
-  opacity: 0.4;
-  z-index: -1;
 }
 
 .admin-dashboard::before {
@@ -135,7 +193,7 @@ form {
   bottom: 0;
   background: url("/viivus-bg2.png");
   background-size: 250px;
-  min-height: calc(100vh - var(--navbar-height));
+  min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
   opacity: 0.4;
   z-index: -1;
 }
@@ -302,4 +360,17 @@ img {
   & p {
     color: white;
   }
+}
+
+.anti-footer {
+  min-height: calc(100vh - var(--footer-height));
+}
+
+footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 6px 0;
+  font-size: 12px;
+  border-top: 1px solid rgb(110, 110, 110);
 }

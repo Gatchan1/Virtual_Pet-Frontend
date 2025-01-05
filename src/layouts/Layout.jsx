@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import { getUserRoleFromToken } from "../utils/authUtils";
+import Footer from "../components/Footer";
 
-export default function Layout ({ setIsAuthenticated, showAdminDashboard, setShowAdminDashboard, children }) {
+export default function Layout({ setIsAuthenticated, showAdminDashboard, setShowAdminDashboard, children }) {
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
@@ -13,11 +14,12 @@ export default function Layout ({ setIsAuthenticated, showAdminDashboard, setSho
   }, []);
 
   return (
-    <div>
-      <Navbar isAdmin={isAdmin} showAdminDashboard={showAdminDashboard} setShowAdminDashboard={setShowAdminDashboard} setIsAuthenticated={setIsAuthenticated}/>
-      <div className="content">
-        {children}
+    <>
+      <div className="anti-footer">
+        <Navbar isAdmin={isAdmin} showAdminDashboard={showAdminDashboard} setShowAdminDashboard={setShowAdminDashboard} setIsAuthenticated={setIsAuthenticated} />
+        <div className="content">{children}</div>
       </div>
-    </div>
+      <Footer/>
+    </>
   );
-};
+}

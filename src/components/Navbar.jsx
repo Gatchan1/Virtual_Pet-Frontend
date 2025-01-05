@@ -1,5 +1,13 @@
+import { useEffect, useState } from "react";
+import { getUserNameFromToken } from "../utils/authUtils";
+
 export default function Navbar({ setIsAuthenticated, showAdminDashboard, setShowAdminDashboard, isAdmin }) {
-  
+  const [username, setUsername] = useState("");
+
+  useEffect(() => {
+    setUsername(getUserNameFromToken());
+  }, []);
+
   const logout = () => {
     localStorage.removeItem("token");
     setIsAuthenticated(false);
@@ -7,15 +15,19 @@ export default function Navbar({ setIsAuthenticated, showAdminDashboard, setShow
 
   const AdminPanelButton = () => {
     return (
-    <button onClick={() => setShowAdminDashboard((bool) => !bool)} className="btn btn-warning">
-    {showAdminDashboard ? "User Dashboard" : "Admin Panel"}
-    </button>
-  )};
+      <button onClick={() => setShowAdminDashboard((bool) => !bool)} className="btn btn-warning">
+        {showAdminDashboard ? "User Dashboard" : "Admin Panel"}
+      </button>
+    );
+  };
 
   return (
-    <div className={`navbar ${isAdmin ? "space-between" : "button-to-left"}`}>
+    <div className="navbar">
       {isAdmin && <AdminPanelButton />}
-      <button onClick={logout} className="btn btn-light">Logout</button>
+      <p>Hello, <b>{username}</b></p>
+      <button onClick={logout} className="btn btn-light">
+        Logout
+      </button>
     </div>
   );
 }

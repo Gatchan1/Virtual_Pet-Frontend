@@ -3,7 +3,24 @@ import SignUp from "../components/SignUp";
 
 export default function AuthenticationPage({ setIsAuthenticated }) {
   return (
-    <div className="relative authentication-page full-height y-center">
+    <div className="relative authentication-page">
+      <div className="mosaic">
+        <div className="info">
+          <h1>Welcome to Virtual Petter!</h1>
+          <p>
+            Here you can have your pets grow happy... unless you forget about them : (<br />
+            Try to check in on them at least once a day!<br />
+            <span className="small-font">(If they get too sad they&apos;ll most likely eventually leave you)</span>
+          </p>
+          <p>Do you want to take care of a <b>dog</b>? A <b>cat</b>? Maybe a <b>duck</b>!<br />
+          Maybe <b>LOTS OF DUCKS!</b></p>
+          <p>
+            Each pet will have a unique personality and enjoy or dislike the accessories you make them wear.<br />
+            Make sure you play with them. See how happy they are?
+          </p>
+        </div>
+      </div>
+
       <div className="accordion" id="authAccordion">
         <div className="accordion-item">
           <h2 className="accordion-header">
