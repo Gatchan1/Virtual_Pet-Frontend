@@ -8,7 +8,7 @@ export default function SignUp({ setIsAuthenticated }) {
   const [repeatPassword, setRepeatPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleLogin = async (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
     setError("");
     try {
@@ -21,8 +21,8 @@ export default function SignUp({ setIsAuthenticated }) {
   };
 
   return (
-    <div style={{ maxWidth: "400px", margin: "auto" }}>
-      <form onSubmit={handleLogin}>
+    <div className="auth-form">
+      <form onSubmit={handleSignup}>
         <div>
           <label>Nombre de usuario:</label>
           <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />
@@ -39,7 +39,7 @@ export default function SignUp({ setIsAuthenticated }) {
           <label>Repite la contraseña:</label>
           <input type="password" value={repeatPassword} onChange={(e) => setRepeatPassword(e.target.value)} required />
         </div>
-        {error && <p style={{ color: "red" }}>{error}</p>}
+        {error && <p  className="error-alert">{error}</p>}
         <div className="center">
           <button type="submit" className="btn btn-primary">Registro + iniciar sesión</button>
         </div>

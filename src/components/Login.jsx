@@ -18,7 +18,7 @@ export default function Login({ setIsAuthenticated }) {
   };
 
   return (
-    <div style={{ maxWidth: "400px", margin: "auto" }}>
+    <div className="auth-form">
       <form onSubmit={handleLogin}>
         <div>
           <label>Nombre de usuario:</label>
@@ -28,7 +28,7 @@ export default function Login({ setIsAuthenticated }) {
           <label>Contraseña:</label>
           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
         </div>
-        {error && <p style={{ color: "red" }}>{error}</p>}
+        {error && <p className="error-alert">{error}</p>}
         <div className="center">
           <button type="submit" className="btn btn-primary">Iniciar sesión</button>
         </div>

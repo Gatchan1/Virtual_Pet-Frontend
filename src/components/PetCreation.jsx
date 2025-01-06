@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { createPet } from "../api/petService";
 
-export default function PetCreation({ fetchUserPets, setShowCreatePet }) {
+export default function PetCreation({ fetchUserPets, setShowCreatePet, setHasPets }) {
   const [name, setName] = useState("");
   const [type, setType] = useState("CAT");
   const [color, setColor] = useState("WHITE");
@@ -9,6 +9,7 @@ export default function PetCreation({ fetchUserPets, setShowCreatePet }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      setHasPets(true);
       const response = await createPet(name, type, color);
       setShowCreatePet(bool => !bool);
       if (response.status === 201) {

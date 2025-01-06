@@ -38,7 +38,9 @@ function App() {
           <div className="anti-footer">
             <AuthenticationPage setIsAuthenticated={setIsAuthenticated} />
           </div>
-          <Footer/>
+          <div className="footer-auth">
+            <Footer />
+          </div>
         </>
       )}
     </>
