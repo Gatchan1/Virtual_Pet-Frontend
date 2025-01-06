@@ -24,10 +24,10 @@ export default function VisualsAndInteractions({ pet, fetchPets }) {
     }
   };
 
-  const calculateTimePassed = (dateString) => {
-    const createdDate = new Date(dateString);
-    const currentDate = new Date();
-    const differenceInMilliseconds = currentDate - createdDate;
+  const calculateTimePassed = (dateStringCreation, dateStringInactivation) => {
+    const createdDate = new Date(dateStringCreation);
+    const inactivationDate = new Date(dateStringInactivation);
+    const differenceInMilliseconds = inactivationDate - createdDate;
     const differenceInDays = differenceInMilliseconds / (1000 * 60 * 60 * 24);
     return Math.round(differenceInDays * 10) / 10;
   };
@@ -41,7 +41,7 @@ export default function VisualsAndInteractions({ pet, fetchPets }) {
             <p>
               <b>{pet.name}</b> felt mistreated and left you.
             </p>
-            <p>They were with you for {calculateTimePassed(pet.createdAt)} days.</p>
+            <p>They were with you for {calculateTimePassed(pet.createdAt, pet.inactivatedAt)} days.</p>
           </h5>
         )}
         {pet.active && (
