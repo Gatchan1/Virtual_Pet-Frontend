@@ -21,16 +21,16 @@ export default function Login({ setIsAuthenticated }) {
     <div className="auth-form">
       <form onSubmit={handleLogin}>
         <div>
-          <label>Nombre de usuario:</label>
+          <label>Username:</label>
           <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />
         </div>
         <div>
-          <label>Contraseña:</label>
+          <label>Password:</label>
           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
         </div>
         {error && <p className="error-alert">{error}</p>}
         <div className="center">
-          <button type="submit" className="btn btn-primary">Iniciar sesión</button>
+          <button type="submit" className="btn btn-primary">Log in</button>
         </div>
       </form>
     </div>

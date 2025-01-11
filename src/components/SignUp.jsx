@@ -24,7 +24,7 @@ export default function SignUp({ setIsAuthenticated }) {
     <div className="auth-form">
       <form onSubmit={handleSignup}>
         <div>
-          <label>Nombre de usuario:</label>
+          <label>Username:</label>
           <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />
         </div>
         <div>
@@ -32,16 +32,16 @@ export default function SignUp({ setIsAuthenticated }) {
           <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
         </div>
         <div>
-          <label>Contraseña:</label>
+          <label>Password:</label>
           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
         </div>
         <div>
-          <label>Repite la contraseña:</label>
+          <label>Repeat password:</label>
           <input type="password" value={repeatPassword} onChange={(e) => setRepeatPassword(e.target.value)} required />
         </div>
         {error && <p  className="error-alert">{error}</p>}
         <div className="center">
-          <button type="submit" className="btn btn-primary">Registro + iniciar sesión</button>
+          <button type="submit" className="btn btn-primary">Sign up + log in</button>
         </div>
       </form>
     </div>
