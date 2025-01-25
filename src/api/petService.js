@@ -37,7 +37,7 @@ export const updatePet = async (pet, { petInteraction = null, accessories = pet.
     location,
   };
 
-  const response = await axios.put(`${API_URL}/pet/update`, data, {
+  const response = await axios.patch(`${API_URL}/pet/update`, data, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
